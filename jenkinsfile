@@ -12,7 +12,7 @@ pipeline {
 
                 // To run Maven on a Windows agent, use
                  //bat "mvn -Dmaven.test.failure.ignore=true clean compile test package"
-                 bat './mvnw clean package'
+                 bat ./mvnw clean compile package
             }
             post {
                 // If Maven was able to run the tests, even if some of the test
