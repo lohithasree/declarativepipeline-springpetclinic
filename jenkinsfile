@@ -15,19 +15,17 @@ pipeline {
                  bat ./mvnw clean compile package
             }
             post {
-                // If Maven was able to run the tests, even if some of the test
-                // failed, record the test results and archive the jar file.
                 success {
                     junit '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.jar'
                     
                     // for swnding emailnotifications
-                emailext attachLog: true, 
-                body: 'just go to url', 
-                compressLog: true, 
-                recipientProviders: [upstreamDevelopers(), 
-                requestor()], 
-                subject: 'job name and build number waiting for input'
+                //emailext attachLog: true, 
+                //body: 'just go to url', 
+                //compressLog: true, 
+                //recipientProviders: [upstreamDevelopers(), 
+                //requestor()], 
+                //subject: 'job name and build number waiting for input'
              }
                 }
             }
